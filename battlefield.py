@@ -1,12 +1,23 @@
+from _typeshed import Self
 from robot import Robots
 from fleet import Fleet
 from herd import Herd
-
+import random
 # attack function to be used in the battle
 def dino_attacker (dino, robot):
     robot.hp -= dino.attack
     print (dino.attack)
     print(robot.hp)
+
+# need this to pick who fights
+def get_random_number(num_1, num_2):
+    random_int = random_number(num_1, num_2)
+    return random_int
+
+
+def random_number(min_value, max_value):
+    return random.randint(min_value, max_value)
+
 
 
 # def robot_attacker(robot, dino):
@@ -15,8 +26,6 @@ def dino_attacker (dino, robot):
     
 class Battle_Field:
 
-
-
     def __init__(self):
         self.herd = Herd()
         self.fleet = Fleet()
@@ -24,12 +33,21 @@ class Battle_Field:
     def start_of_it_all():
         print("WELCOME TOO DINSAURS VS ROBOTS!!!!!")
         print ("LETS GET THIS SHOW ON THE ROAD!")
+            
 
+    def battle(self):   
+        dino_fighters = 3
+        robo_fighters = 3
+        
+        while dino_fighters >= 0 and robo_fighters >= 0:
+            d = get_random_number(0 , 2)
+            while self.herd.herd[d].hp <= 0:
+                d = get_random_number (0 , 2)
 
-    def battle(self):
-        dino_fighters = len(Herd)
-        robo_fighters = len(Fleet)
-        while 
+            r = get_random_number(0, 2)
+            while self.fleet.fleet[r]:
+                r = get_random_number(0, 2)
+
 
 
 
@@ -61,3 +79,4 @@ class Battle_Field:
 # if dino reach 0 robots WindowsError
 
 # if robts reach 0 don win
+Battle_Field().battle()
