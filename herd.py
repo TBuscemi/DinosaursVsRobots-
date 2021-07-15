@@ -8,6 +8,6 @@ class Herd:
         dino_profile = dino_profile
 
 
-        dino_profile =[Dinosaur("REX" ,100 ,25)]
+        self.dino_profile =[Dinosaur("REX" ,100 ,25),Dinosaur("Velociraptor" ,100 ,25),Dinosaur("Megalosaurus" ,100 ,25)]
 
         
