@@ -31,7 +31,7 @@ class Battle_Field:
 
     def battle(self):   
         print("WELCOME TOO DINSAURS VS ROBOTS!!!!!")
-        print ("LETS GET THIS SHOW ON THE ROAD!")
+        print ("SO WITH OUT SO WITHOUT FURTHER ADIEU LETS GET READY TO RUMBLE!")
         
         dino_fighters = 3
         robo_fighters = 3
@@ -62,21 +62,21 @@ class Battle_Field:
 
 
             if self.herd.dino_profile[d].hit_points <= 0:
-                print(f"{self.herd.dino_profile[d].name} has been killed")
+                print(f"{self.herd.dino_profile[d].name} HAS BECOME EXTINCT!!")
                 d += 1
                 dino_fighters -= 1
 
             if self.fleet.robot_profile[r].hit_points <= 0:
-                print(f"{self.fleet.robot_profile[r].name} has been Destroyed")
+                print(f"{self.fleet.robot_profile[r].name} OOOOO HE IS NOTHING BUT SCRAP!!")
                 r += 1
                 robo_fighters -= 1
 
             
             if d == 3:
-                print("AND THE ROBOTS WIN!")
+                print("IT LOOKS LIKE SCIENCE BEATS INSTINCT! THE ROBOTS WIN! ")
                 break
             if r == 3:
-                print("AND THE DINOS STOP THE BOTS!")
+                print("OMG WHO COULD OF SAW THIS! THE BLAST FROM THE PAST STOMPED ALL OVER THE FUTURE! THE DINOSAURS WIN!")
                 break
        
 
