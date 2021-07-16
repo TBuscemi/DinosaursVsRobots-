@@ -1,15 +1,13 @@
-from _typeshed import Self
-from robot import Robots
 from fleet import Fleet
 from herd import Herd
 import random
-# attack function to be used in the battle
-def dino_attacker (dino, robot):
-    robot.hp -= dino.attack
-    print (dino.attack)
-    print(robot.hp)
 
-# need this to pick who fights
+def attacker (attacker, defender):
+    defender.hit_points -= attacker.weapon.damage
+    print (attacker.weapon.damage)
+    print(defender.hit_points)
+
+
 def get_random_number(num_1, num_2):
     random_int = random_number(num_1, num_2)
     return random_int
@@ -19,64 +17,68 @@ def random_number(min_value, max_value):
     return random.randint(min_value, max_value)
 
 
-
-# def robot_attacker(robot, dino):
-#     statment asking what weapon you wanna Userwants 
-#     doing the damage with that weapon to the dino
-    
 class Battle_Field:
 
     def __init__(self):
         self.herd = Herd()
         self.fleet = Fleet()
+
+
+
+
 # this is an intro to the big battle
-    def start_of_it_all():
-        print("WELCOME TOO DINSAURS VS ROBOTS!!!!!")
-        print ("LETS GET THIS SHOW ON THE ROAD!")
-            
+
 
     def battle(self):   
+        print("WELCOME TOO DINSAURS VS ROBOTS!!!!!")
+        print ("LETS GET THIS SHOW ON THE ROAD!")
+        
         dino_fighters = 3
         robo_fighters = 3
-        
-        while dino_fighters >= 0 and robo_fighters >= 0:
-            d = get_random_number(0 , 2)
-            while self.herd.herd[d].hp <= 0:
-                d = get_random_number (0 , 2)
-
-            r = get_random_number(0, 2)
-            while self.fleet.fleet[r]:
-                r = get_random_number(0, 2)
+        d = 0
+        r = 0
+        while dino_fighters >0 and robo_fighters >0:
 
 
+            fighter = get_random_number(1, 20)  
+
+                
+            if fighter <= 10:
+                attacker(self.herd.dino_profile[d], self.fleet.robot_profile[r])
+                print(f"{self.herd.dino_profile[d].name} Attacks with {self.herd.dino_profile[d].weapon.weapon_name}")
+
+            if fighter >= 11:
+                attacker(self.fleet.robot_profile[r], self.herd.dino_profile[d])
+                print(f"{self.fleet.robot_profile[r].name} Attacks with {self.fleet.robot_profile[r].weapon.weapon_name}")
+            
+
+ 
+            if self.herd.dino_profile[d].hit_points > 0:
+                print(f"{self.herd.dino_profile[d].name}'s Hit-Points = {self.herd.dino_profile[d].hit_points}")
+            
+            if self.fleet.robot_profile[r].hit_points > 0:
+                print(f"{self.fleet.robot_profile[r].name}'s Hit-Points = {self.fleet.robot_profile[r].hit_points}")
 
 
-# set dino count down index to the len of Herd
-# set robot^
 
-# this will choose the first fighters 
-# use lens to get the len to add more fighters and count down 
-# while dino >=0 and robot >=0
+            if self.herd.dino_profile[d].hit_points <= 0:
+                print(f"{self.herd.dino_profile[d].name} has been killed")
+                d += 1
+                dino_fighters -= 1
 
+            if self.fleet.robot_profile[r].hit_points <= 0:
+                print(f"{self.fleet.robot_profile[r].name} has been Destroyed")
+                r += 1
+                robo_fighters -= 1
 
-# var = random roll to see who will atack 1-10 dino 11-10 Robots
-
-
-# if var < 11 
-#         do fino attack fun with inputs 
-
-# if var >10 do robots 
-
-# some type of reminders of how much hot ppoints are left for both 
-
-
-#  do for robots and dino 2 ifs
-# if has no hit points left 
-# -1 from the list of fighters 
-# and +1 to the fighter index 
+            
+            if d == 3:
+                print("AND THE ROBOTS WIN!")
+                break
+            if r == 3:
+                print("AND THE DINOS STOP THE BOTS!")
+                break
+       
 
 
-# if dino reach 0 robots WindowsError
-
-# if robts reach 0 don win
 Battle_Field().battle()

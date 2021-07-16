@@ -1,11 +1,6 @@
 class Robots:
-
-
-    def __init__(self, name, hp, attack):
+    def __init__(self, name, hit_points, weapon):
         self.name = name
-        self.hp = hp
-        self.attack = attack
-
-
-    def __init__(self, dino):
-        dino.dino_hp -= self.robot_attack
+        self.hit_points = hit_points
+        self.weapon = weapon
+        

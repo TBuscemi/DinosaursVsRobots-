@@ -1,11 +1,11 @@
-class Dinosaur:
+from weapon import Weapon
 
-    
-    def __init__(self, name, hp, attack):
+
+class Dinosaur:    
+    def __init__(self, name, hit_points, weapon):
         self.name = name
-        self.hp = hp
-        self.attack = attack
+        self.hit_points = hit_points
+        self.weapon = weapon
 
 
-    def __init__(self, robot):
-        robot.robot_hp -= self.dino_attack
+
