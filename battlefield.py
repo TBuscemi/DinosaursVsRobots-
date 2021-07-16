@@ -8,10 +8,6 @@ def attacker (attacker, defender):
     print(defender.hit_points)
 
 
-def get_random_number(num_1, num_2):
-    random_int = random_number(num_1, num_2)
-    return random_int
-
 
 def random_number(min_value, max_value):
     return random.randint(min_value, max_value)
@@ -22,11 +18,6 @@ class Battle_Field:
     def __init__(self):
         self.herd = Herd()
         self.fleet = Fleet()
-
-
-
-
-# this is an intro to the big battle
 
 
     def battle(self):   
@@ -40,7 +31,7 @@ class Battle_Field:
         while dino_fighters >0 and robo_fighters >0:
 
 
-            fighter = get_random_number(1, 20)  
+            fighter = random_number(1, 20)  
 
                 
             if fighter <= 10:
@@ -79,6 +70,5 @@ class Battle_Field:
                 print("OMG WHO COULD OF SAW THIS! THE BLAST FROM THE PAST STOMPED ALL OVER THE FUTURE! THE DINOSAURS WIN!")
                 break
        
-
 
 Battle_Field().battle()
